@@ -1,0 +1,43 @@
+个人中心 person
+我的账户  myAccount
+银行卡管理 userBank
+安全设置 userSafe
+个人信息 userInfo
+奖金详情 bonusDetail
+
+		内部处理
+		user-1-3 绑定邮箱
+		user-1-9 修改头像
+
+资金管理 funds
+我要充值 userRecharge
+我要取款 userWithdraw
+资金记录 userFunds    userFunds_1 提现记录    userFunds_2 额转记录    userFunds_3 转账记录
+帐变明细 userAccountDetail  
+日工资 userDailyWages    userDailyWages_1 日工资记录
+契约分红 userContractBonus   userContractBonus_1
+
+
+游戏记录 games
+投注记录 betRecode    betRecode_1 AG投注记录     betRecode_2 BB投注记录     betRecode_3 PT投注记录     betRecode_4 MG投注记录
+追号记录 chaseRecode
+盈亏报表 plClassic(全版)   plStatement(简版)    plStatement_1 彩票报表   plStatement_2 KG报   plStatement_3 AG报表   plStatement_4 BBIN报表   plStatement_5 PT报表   plStatement_6 MG报表
+日结报表 dailyClassic(全版)   dailyStatement(简版)    dailyStatement_2    dailyStatement_3    dailyStatement_4    dailyStatement_5
+
+消息管理 msg
+站内消息 usernewMsg   
+查看消息 usernewMsgView
+网站公告 usernewNotice
+优惠活动 userActivity
+
+代理中心 agent
+推广设定 userLinks
+新增推广链接 userLinksAdd
+会员管理 userMember
+新增用户 userMemberAdd
+用户图表 userMemberChart
+
+团队总览 userTeam
+团队统计 userTeamStat
+
+

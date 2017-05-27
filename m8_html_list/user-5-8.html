@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>团队统计_团队总览_代理中心_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<link rel="stylesheet" href="css/pikaday.css"/>
+<script src="js/vue.js"></script>
+<script src="js/pikaday.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">推广设定</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">会员管理</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">团队总览</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;">报表总览</a>
+    <a href="javascript:;" class="active">团队统计</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form>
+    
+    注册时间：
+    <input type="button" value="今日" class="active">
+    <input type="button" value="今周">
+    <input type="button" value="今月">
+    <input type="text" placeholder="2017-05-02" class="o_date" id="datepicker_start">
+    -
+    <input type="text" placeholder="2017-05-05" class="o_date" id="datepicker_end">
+    <input type="button" value="搜索" class="o_submit">
+    <input type="reset" value="重置" class="o_reset">
+
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="report_ext r4s clearfix">
+
+    <span>
+    <cite>团队总人数</cite>
+    <i class="red">2</i>
+    </span>
+    
+    <span>
+    <cite>今日新增人数</cite>
+    <i class="red">0</i>
+    </span>
+    
+    <span>
+    <cite>今日投注人数</cite>
+    <i class="red">1</i>
+    </span>
+
+    <span>
+    <cite>当前在线人数</cite>
+    <i class="red">5</i>
+    </span>
+
+</div>
+
+<div class="user_chart">
+	<div id="userChart" style="width:100%;height:550px;"></div>
+</div>
+
+<script>
+
+var myChart = echarts.init(document.getElementById('userChart'));
+
+option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : { 
+            type : 'shadow' 
+        }
+    },
+    legend: {
+        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎','百度','谷歌','必应','其他'],
+		textStyle: {
+        color: 'rgba(255, 255, 255, 0.5)'
+   		}
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['周一','周二','周三','周四','周五','周六','周日'],
+			axisLabel: { 
+					show: true, 　
+					textStyle: { 
+					color: '#CCC' 　
+						} 　
+					},
+			axisLine:{
+                        lineStyle:{
+                            color:'#803D00',
+                            width:2,
+                        }
+                    } 
+        }
+    ],
+    yAxis : [
+                {
+                    type : 'value',
+					axisLabel: { 
+					show: true, 　
+					textStyle: { 
+					color: '#CCC' 　
+						} 　
+					},
+                    axisLine:{
+                        lineStyle:{
+                            color:'#803D00',
+                            width:2,
+                        }
+                    } 
+                }
+            ],
+    series : [
+        {
+            name:'直接访问',
+            type:'bar',
+            data:[320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name:'邮件营销',
+            type:'bar',
+            stack: '广告',
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'联盟广告',
+            type:'bar',
+            stack: '广告',
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'视频广告',
+            type:'bar',
+            stack: '广告',
+            data:[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'搜索引擎',
+            type:'bar',
+            data:[862, 1018, 964, 1026, 1679, 1600, 1570],
+            markLine : {
+                lineStyle: {
+                    normal: {
+                        type: 'dashed'
+                    }
+                },
+                data : [
+                    [{type : 'min'}, {type : 'max'}]
+                ]
+            }
+        },
+        {
+            name:'百度',
+            type:'bar',
+            barWidth : 5,
+            stack: '搜索引擎',
+            data:[620, 732, 701, 734, 1090, 1130, 1120]
+        },
+        {
+            name:'谷歌',
+            type:'bar',
+            stack: '搜索引擎',
+            data:[120, 132, 101, 134, 290, 230, 220]
+        },
+        {
+            name:'必应',
+            type:'bar',
+            stack: '搜索引擎',
+            data:[60, 72, 71, 74, 190, 130, 110]
+        },
+        {
+            name:'其他',
+            type:'bar',
+            stack: '搜索引擎',
+            data:[62, 82, 91, 84, 109, 110, 120]
+        }
+    ]
+};
+
+myChart.setOption(option);
+
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[4].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, false, true]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+var startPicker  = new Pikaday({ field: document.getElementById('datepicker_start') });
+var endPicker   = new Pikaday({ field: document.getElementById('datepicker_end') });
+
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

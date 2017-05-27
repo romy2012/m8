@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>转账记录_资金记录_资金管理_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">我要充值</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">我要取款</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">资金记录</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="javascript:;">帐变明细</a></li>
+<li @click="active(4)" v-bind:class="{active:actives[4]}"><a href="javascript:;">彩票工资</a></li>
+<li @click="active(5)" v-bind:class="{active:actives[5]}"><a href="javascript:;">契约分红</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;">充值记录</a>
+    <a href="javascript:;">提现记录</a>
+    <a href="javascript:;">额转记录</a>
+    <a href="javascript:;" class="active">转账记录</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form>
+    
+    转换平台：
+    <select>
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+    <i></i>
+    交易方向：
+    <select>
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+    <i></i>
+    转换状态：
+    <select>
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+    
+    <div class="clearfix"></div>
+    
+    交易时间：
+    <input type="button" value="今日" class="active">
+    <input type="button" value="本周">
+    <input type="button" value="一个月">
+    
+    <input type="text" placeholder="2017-05-02" class="o_date">
+    -
+    <input type="text" placeholder="2017-05-05" class="o_date">
+    
+    <input type="button" value="确定" class="o_submit">
+    
+    <input type="reset" value="重置" class="o_reset">
+    
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="tbody_operate table_data">
+
+<div class="user_table clearfix">
+  <table class="o_table">
+    <thead>
+      <tr>
+        <th>转换单号</th>
+        <th>转账时间</th>
+        <th>转出用户</th>
+        <th>收款用户</th>
+        <th>状态</th>
+        <th>收款前余额</th>
+        <th>转账余额</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+            <td>BE170318102704838903</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>loysd4</td>
+            <td>sdfas</td>
+            <td class="orange">处理中</td>
+            <td>¥134165431.402</td>
+            <td>¥134665431.402</td>
+            <td>无备注</td>
+        </tr>
+        <tr>
+            <td>BE170318102704838903</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>loysd4</td>
+            <td>sdfas</td>
+            <td class="green">成功</td>
+            <td>¥134165431.402</td>
+            <td>¥134665431.402</td>
+            <td>无备注</td>
+        </tr>
+        <tr>
+            <td>BE170318102704838903</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>loysd4</td>
+            <td>sdfas</td>
+            <td class="red">处理中</td>
+            <td>¥134165431.402</td>
+            <td>¥134665431.402</td>
+            <td>无备注</td>
+        </tr>
+        <tr>
+            <td>BE170318102704838903</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>loysd4</td>
+            <td>sdfas</td>
+            <td class="orange">处理中</td>
+            <td>¥134165431.402</td>
+            <td>¥134665431.402</td>
+            <td>无备注</td>
+        </tr>
+        <tr>
+            <td>BE170318102704838903</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>loysd4</td>
+            <td>sdfas</td>
+            <td class="red">成功</td>
+            <td>¥134165431.402</td>
+            <td>¥134665431.402</td>
+            <td>无备注</td>
+        </tr>
+        <tr>
+            <td>BE170318102704838903</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>loysd4</td>
+            <td>sdfas</td>
+            <td class="orange">处理中</td>
+            <td>¥134165431.402</td>
+            <td>¥134665431.402</td>
+            <td>无备注</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="o_page">
+<div class="page_record">共有42条记录，第7页</div>
+<div class="page_data">
+<a href="#" class="page_pre">&#8249;</a><a href="#">1</a><a href="#">2</a><span>...</span><a href="#" class="active">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#" class="page_next">&#8250;</a>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[1].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, false, true, false, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

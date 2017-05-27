@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>契约分红纪录_契约分红_资金记录_资金管理_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/userpage.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="userRecharge.html">我要充值</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="userWithdraw.html">我要取款</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="userFunds.html">资金记录</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="userAccountDetail.html">帐变明细</a></li>
+<li @click="active(4)" v-bind:class="{active:actives[4]}"><a href="userDailyWages.html">彩票工资</a></li>
+<li @click="active(5)" v-bind:class="{active:actives[5]}"><a href="userContractBonus.html">契约分红</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="userContractBonus.html">契约分红</a>
+    <a href="userContractBonus_1.html" class="active">契约分红纪录</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form onSubmit="submitFalse()">
+    
+    账户：
+    <input type="text" name="" placeholder="输入转换单号" style="width:120px;">
+        
+    <select>
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+    
+    状态：
+    <select>
+          <option value="">未派发</option>
+          <option value="">已派发</option>
+    </select>
+
+    时间：
+    <select>
+          <option value="">最近三个月</option>
+          <option value="">最近五个月</option>
+    </select>
+
+    <input type="button" value="确定" class="o_submit">
+    
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="tbody_operate table_data">
+
+<div class="user_table clearfix">
+  <table class="o_table" id="sortTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0,'sortTable')">用户名 <i class="o_sort"></i></th>
+        <th onclick="sortTable(1,'sortTable')">同期累计投注额（万） <i class="o_sort"></i></th>
+        <th onclick="sortTable(2,'sortTable')">盈亏 <i class="o_sort"></i></th>
+        <th onclick="sortTable(3,'sortTable')">分红比例 <i class="o_sort"></i></th>
+        <th onclick="sortTable(4,'sortTable')">应发分红 <i class="o_sort"></i></th>
+        <th onclick="sortTable(5,'sortTable')">状态 <i class="o_sort"></i></th>
+        <th onclick="sortTable(6,'sortTable')">开始日期 <i class="o_sort"></i></th>
+        <th onclick="sortTable(7,'sortTable')">发放时间 <i class="o_sort"></i></th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td class="green">+2.55%</td>
+            <td>2.5%</td>
+            <td>8005.000</td>
+            <td>发放中</td>
+            <td>2017-05-23 10:23:42</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Bruce</td>
+            <td>设计方案02</td>
+            <td class="red">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Bruce</td>
+            <td>设计方案01</td>
+            <td class="red">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td class="green">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td class="green">+2.55%</td>
+            <td>2.5%</td>
+            <td>8005.000</td>
+            <td>发放中</td>
+            <td>2017-05-23 10:23:42</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Bruce</td>
+            <td>设计方案02</td>
+            <td class="red">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td class="green">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td class="red">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td class="green">+2.25%</td>
+            <td>2.0%</td>
+            <td>8000.000</td>
+            <td>发放中</td>
+            <td>2017-03-23 10:23:42</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="o_page">
+
+<div class="page_record">共有42条记录，第7页</div>
+
+<div id="appUserPage"></div>
+<script type="text/x-template" id="userPage">
+<paginate 
+	:pageCount="10"
+	:containerClass="'page_data_li'"
+	:clickHandler="clickCallback">
+</paginate>
+</script>
+<script>
+Vue.component('paginate', VuejsPaginate)
+new Vue({
+  el: '#appUserPage',
+  template: '#userPage',
+  methods: {
+    clickCallback: function(page) {
+      console.log(page)
+    }
+  }
+})
+</script>
+
+</div>
+
+<div class="o_other">
+<input type="button" value="同意" class="btn">
+<input type="button" value="拒绝" class="btn red">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+var user_menu = document.getElementsByClassName("user_menu")[0];
+user_menu.setAttribute("class", "user_menu user_menu_s");
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[1].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, false, false, false, false, true]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

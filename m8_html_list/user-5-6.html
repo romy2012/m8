@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>用户图表_会员管理_代理中心_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<link rel="stylesheet" href="css/pikaday.css"/>
+<script src="js/vue.js"></script>
+<script src="js/pikaday.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">推广设定</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">会员管理</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">团队总览</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;">用户列表</a>
+    <a href="javascript:;">新增用户</a>
+    <a href="javascript:;" class="active">用户图表</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form>
+    
+    日期：
+    <input type="button" value="今日" class="active">
+    <input type="button" value="今周">
+    <input type="button" value="今月">
+    
+    <input type="text" placeholder="2017-05-02" class="o_date" id="datepicker_start">
+    -
+    <input type="text" placeholder="2017-05-05" class="o_date" id="datepicker_end">
+    
+    <input type="button" value="搜索" class="o_submit">
+    
+    <input type="reset" value="重置" class="o_reset">
+    
+    </form>
+    
+</div>
+
+<div class="user_chart">
+	<div id="userChart" style="width:100%;height:550px;"></div>
+</div>
+
+<script>
+
+var myChart = echarts.init(document.getElementById('userChart'));
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+		textStyle: {
+        color: 'rgba(255, 255, 255, 0.5)'
+   		}
+    },
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1548, name:'搜索引擎'}
+            ]
+        }
+    ]
+};
+
+myChart.setOption(option);
+
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+var user_menu = document.getElementsByClassName("user_menu")[0];
+user_menu.setAttribute("class", "user_menu user_menu_s");
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[4].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, true, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+
+var startPicker  = new Pikaday({ field: document.getElementById('datepicker_start') });
+var endPicker   = new Pikaday({ field: document.getElementById('datepicker_end') });
+
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

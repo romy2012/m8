@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>MG投注记录_投注记录_游戏中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/userpage.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="betRecode.html">投注记录</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="chaseRecode.html" class="row6text">彩票追号记录</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="plClassic.html">盈亏报表</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="dailyClassic.html">日结报表</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="betRecode.html">彩票投注记录</a>
+    <a href="betRecode_1.html">AG投注记录</a>
+    <a href="betRecode_2.html">BB投注记录</a>
+    <a href="betRecode_3.html">PT投注记录</a>
+    <a href="betRecode_4.html" class="active">MG投注记录</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form onSubmit="submitFalse()">
+    
+    投注日期：
+    <input type="button" value="今日" class="active">
+    <input type="button" value="今周">
+    <input type="button" value="一个月">
+    
+    <input type="text" placeholder="2017-05-02" class="o_date">
+    -
+    <input type="text" placeholder="2017-05-05" class="o_date">
+    
+    结算状态：
+    <select name="">
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+
+    桌号：
+    <input type="text" name="" placeholder="输入桌号">
+
+    <div class="clearfix"></div>
+
+    投注单号：
+    <input type="text" name="" placeholder="输入投注单号">
+
+    游戏厅：
+    <select name="">
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+
+    游戏类型：
+    <select name="">
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+
+    用户名：
+    <input type="text" name="" placeholder="输入用户名">
+
+    <input type="button" value="搜索" class="o_submit">
+    
+    <input type="reset" value="重置" class="o_reset">
+
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="tbody_operate table_data">
+
+<div class="user_table clearfix">
+  <table class="o_table">
+    <thead>
+      <tr>
+        <th>投注单号</th>
+        <th>游戏厅</th>
+        <th>游戏类型</th>
+        <th>游戏局号</th>
+        <th>桌号</th>
+        <th>盈亏金额</th>
+        <th>投注金额</th>
+        <th>投注前金额</th>
+        <th>结算状态</th>
+        <th>投注时间</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>800</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>800</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>50</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>800</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>50</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>800</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>50</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>800</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>20170512-049</td>
+            <td>彩票游戏厅</td>
+            <td>重庆时时彩</td>
+            <td>50</td>
+            <td>05</td>
+            <td>5000.000</td>
+            <td>88555500.000</td>
+            <td>828555500.000</td>
+            <td>未结算</td>
+            <td>2017-03-23 10:23:42</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="o_page">
+
+<div class="page_record">共有42条记录，第7页</div>
+
+<div id="appUserPage"></div>
+<script type="text/x-template" id="userPage">
+<paginate 
+	:pageCount="10"
+	:containerClass="'page_data_li'"
+	:clickHandler="clickCallback">
+</paginate>
+</script>
+<script>
+Vue.component('paginate', VuejsPaginate)
+new Vue({
+  el: '#appUserPage',
+  template: '#userPage',
+  methods: {
+    clickCallback: function(page) {
+      console.log(page)
+    }
+  }
+})
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[2].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [true, false, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

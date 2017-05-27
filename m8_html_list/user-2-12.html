@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>财付通充值_在线充值_我要充值_资金管理_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">我要充值</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">我要取款</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">资金记录</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="javascript:;">帐变明细</a></li>
+<li @click="active(4)" v-bind:class="{active:actives[4]}"><a href="javascript:;">彩票工资</a></li>
+<li @click="active(5)" v-bind:class="{active:actives[5]}"><a href="javascript:;">契约分红</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;">在线充值</a>
+    <a href="javascript:;">线下充值</a>
+    <a href="javascript:;">支付宝充值</a>
+    <a href="javascript:;" class="active">财付通充值</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="tbody_operate operate_align_left clearfix">
+
+<form class="form_submit" name="operateForm" onSubmit="return false;">
+
+<div class="bar_tip">
+<span><i class="icon_tip icon_normal"></i> 请按照下方流程进行充值，如果不按照系统要求充值，不能及时到账</span>
+</div>
+
+<div class="clear_dot" style="margin-top:25px;"></div>
+
+<div class="fl">
+
+<p>
+<label>收款银行：</label>
+<abbr class="choose_pic">
+<img src="images/pic.png" width="140" height="50" class="active">
+</abbr>
+</p>
+
+<p>
+<label>收款人：</label>
+<input type="text" placeholder="张三" onKeyup="checkform('operateForm','operateSubmit')"> <input type="button" value="复制" class="btn_copy">
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p>
+<label></label>
+<font>*</font>
+<span class="text_tip">收款人实时变更，请复制当前最新收款人</span>
+</p>
+
+<p>
+<label>收款帐号：</label>
+<input type="text" placeholder="6252 1231 3452 2454 12" onKeyup="checkform('operateForm','operateSubmit')"> <input type="button" value="复制" class="btn_copy">
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p>
+<label></label>
+<font>*</font>
+<span class="text_tip">收款账号实时变更，请复制当前最新账号</span>
+</p>
+
+</div>
+
+
+<div class="fr">
+
+<p>
+<label>充值金额：</label>
+<input type="text" placeholder="请输入充值金额" onKeyup="checkform('operateForm','operateSubmit')">
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p>
+<label></label>
+<font>*</font>
+<span class="text_tip">单笔充值限额，最低100.最高100000</span>
+</p>
+
+<p>
+<label>附言：</label>
+<input type="text" placeholder="" onKeyup="checkform('operateForm','operateSubmit')">
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p>
+<label></label>
+<font>*</font>
+<span class="text_tip">（必填）转账时请填写附言</span>
+</p>
+
+<p>
+<label>备注：</label>
+<input type="text" placeholder="" onKeyup="checkform('operateForm','operateSubmit')">
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p>
+<label></label>
+<font>*</font>
+<span class="text_tip">（必填）请输入您转账卡号的后四位号码</span>
+</p>
+
+</div>
+
+<div class="clearfix"></div>
+
+<p align="center"><label></label><input type="submit" value="提交" class="btn_submit" name="operateSubmit" disabled onClick="modalClick('myModal')"><span></span></p>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 弹窗 图标说明 异常错误 error 提示 tip 彩票 lottery 追号 chasse 订单 order-->
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><i class="order"></i><cite>订单详情</cite></h2>
+      <span class="close" onClick="modalClose('myModal')">&times;</span>
+    </div>
+    <div class="modal-body">
+    
+      <p>充值平台：财付通</p>
+      <p>充值账号：lise@163.com</p>
+      <p>充值金额：200.00元</p>
+      
+    </div>
+    <div class="modal-footer">
+      <input type="button" value="确认订单" class="btn" onClick="modalClose('myModal')">
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[1].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [true, false, false, false, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

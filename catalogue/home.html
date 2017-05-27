@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>首页</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/home.css"/>
+<script src="js/vue.js"></script>
+</head>
+
+<body>
+
+<!-- 一级导航 -->
+<div class="M8_nav_level_1">
+<div class="level_1 clearfix">
+<ul>
+<li class="active"><a href="javascript:;">首页</a></li>
+<li><a href="javascript:;">视讯</a></li>
+<li><a href="javascript:;">小游戏</a></li>
+<li><a href="javascript:;">KG游戏</a></li>
+<li><a href="javascript:;">体育游戏</a></li>
+<li><a href="javascript:;">游戏娱乐</a></li>
+<li><a href="javascript:;">电子游戏</a></li>
+</ul>
+<cite class="level_1_logo"><a href="javascript:;">M8</a></cite>
+<cite class="level_1_app"><i>APP介绍</i> <a href="myAccount.html" onMouseOver="document.getElementById('login_info').style.display='block'"><img src="images/face.png" class="app_face"></a> <a class="login_play" href="javascript:;">试玩</a> <span>1000000.00</span> <a class="login_out" href="javascript:;">退出</a></cite>
+
+<div class="login_box" id="login_box">
+<p><input id="user_name" placeholder="帐号" v-model="user_name"/></p>
+<p><input id="user_password" v-model="user_password" type="password"  placeholder="密码"/></p>
+<p><input id="user_seccode" v-model="user_seccode" placeholder="验证码"/> <img class="img_seccode" src="images/seccode.png"></p>
+<p><input id="user_login" type="button" value="登录" @click="submitLogin()"></p>
+<p class="ripple"><input id="user_trial" type="button" value="试玩"></p>
+</div>
+
+<div class="login_info" id="login_info" onMouseOver="this.style.display='block'" onMouseOut="this.style.display='none'" onClick="event.stopPropagation();">
+<p><i>账户：TTPLK250</i></p>
+<p>钱包总额：9999555878.00</p>
+<p><span>AG余额：9999555878.00</span> <span>PG余额：9999555878.00</span></p>
+<p><span>BG余额：9999555878.00</span> <span>MG余额：刷新获取</span></p>
+</div>
+
+</div>
+</div>
+
+<!-- 奖金池累计提醒 -->
+<div class="bonus_pool">平台累计中奖77724543元 奖金池余</div>
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num4s">
+    <ul>
+    <li class="active"><a href="javascript:;">高频彩</a></li>
+    <li>
+    <a href="javascript:;">快乐彩</a>
+    <cite class="col2s">
+    <i></i>
+    <a href="javascript:;" onClick="alert('PC蛋蛋')">PC蛋蛋</a>
+    <a href="javascript:;" onClick="alert('香港六合彩')">香港六合彩</a>
+    </cite>
+    </li>
+    <li>
+    <a href="javascript:;">PK10</a>
+    <cite>
+    <i></i>
+    <a href="javascript:;" onClick="alert('PC蛋蛋')">PC蛋蛋</a>
+    <a href="javascript:;" onClick="alert('香港六合彩')">香港六合彩</a>
+    <a href="javascript:;" onClick="alert('哈尔滨六合彩')">哈尔滨六合彩</a>
+    <a href="javascript:;" onClick="alert('天津六合彩')">天津六合彩</a>
+    <a href="javascript:;" onClick="alert('PC蛋蛋')">PC蛋蛋</a>
+    <a href="javascript:;" onClick="alert('香港六合彩')">香港六合彩</a>
+    <a href="javascript:;" onClick="alert('哈尔滨六合彩')">哈尔滨六合彩</a>
+    <a href="javascript:;" onClick="alert('天津六合彩')">天津六合彩</a>
+    <a href="javascript:;" onClick="alert('PC蛋蛋')">PC蛋蛋</a>
+    <a href="javascript:;" onClick="alert('香港六合彩')">香港六合彩</a>
+    </cite>
+    </li>
+    <li>
+    <a href="javascript:;">快三</a>
+    <cite>
+    <i></i>
+    <a href="javascript:;" onClick="alert('香港六合彩')">香港六合彩</a>
+    <a href="javascript:;" onClick="alert('PC蛋蛋')">PC蛋蛋</a>
+    <a href="javascript:;" onClick="alert('香港六合彩')">香港六合彩</a>
+    </cite>
+    </li>
+    </ul>
+</div>
+
+<!-- M8_banner -->
+
+<div class="clearfix M8_banner">
+<div class="owl-carousel owl-theme" id="owl-banner">
+    <div class="item-banner banner_1"></div>
+    <div class="item-banner banner_2"></div>
+    <div class="item-banner banner_3"></div>
+</div>
+<ul class="owl-dots" id="owl-banner-dots">
+    <li class="owl-dot"><img src="images/banner_1_s.png"></li>
+    <li class="owl-dot"><img src="images/banner_1_s.png"></li>
+    <li class="owl-dot"><img src="images/banner_1_s.png"></li>
+</ul>
+</div>
+
+<!-- 公告模块 最新公告 我的收藏 -->
+
+<div class="wrap_body clearfix M8_notice">
+
+<div class="tbox notice_l">
+<div class="thead"><i class="head_icon icon_zxgg"></i> <span>最新公告</span></div>
+<div class="tbody radius_5px">
+<div class="notice_l_t">
+<a href="#" target="_blank"><img src="images/pic.png" width="100" height="60"></a> 4月30日，“五一”假期第二天，各地迎来客流高峰。图为游客经过李世民亲封的“天下第一名刹”牌坊。
+</div>
+<ul class="notice_l_b">
+<li><a href="#" target="_blank">美国圣地亚哥枪手射伤8人后被警方击毙</a></li>
+<li><a href="#" target="_blank">女性穿高跟鞋开车易出“状况” 平底鞋最安全</a></li>
+<li><a href="#" target="_blank">内蒙古大兴安岭北部原始林火场实现合围</a></li>
+<li><a href="#" target="_blank">新疆焉耆：品美食 听花儿 游乡村 逛古城</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tbox notice_r">
+<div class="thead"><i class="head_icon icon_wdsc"></i> <span>我的收藏</span></div>
+<div class="tbody radius_5px">
+    <div class="owl-carousel owl-theme" id="owl-favorites">
+        <div class="item-fav" v-for="favorite in favorites"><a v-bind:href="favorite.href" target="_blank"><img :src="favorite.src" width="134" height="134"></a><a v-bind:href="favorite.href" target="_blank">{{favorite.title}}</a></div>
+    </div>
+</div>
+</div>
+
+</div>
+
+<!-- 精彩热门 -->
+
+<div class="wrap_body clearfix M8_hot">
+
+<div class="tbox">
+<div class="thead"><i class="head_icon icon_jcrm"></i> <span>精彩热门</span> <span class="txt_hot">HOT</span></div>
+<div class="tbody">
+<ul>
+    <li v-for="hot in hots">
+    <a v-bind:href="hot.href" target="_blank">
+    <span><i class="i_t">{{hot.title}}</i><i class="i_m">{{hot.nums}}人</i><i class="i_b">{{hot.des}}</i></span>
+    <img :src="hot.src">
+    <cite><i>进入游戏</i></cite>
+    </a>
+    </li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<!-- 视频 -->
+
+<div class="wrap_body clearfix M8_video">
+<div class="tbox">
+<div class="thead"><i class="head_icon icon_shipin"></i> <span>创领行业之先，打造一流购彩体验</span></div>
+<div class="tbody">
+<video controls id="myvideo">
+	<source src="images/mp4.mp4" type="video/mp4">
+	<p>你的浏览器过于低端，不支持Html5视频播放，快升级浏览器吧。</p>
+</video>
+</div>
+</div>
+</div>
+
+<!-- 推荐 -->
+
+<div class="wrap_body clearfix M8_recommend">
+
+<div class="tbox">
+<div class="thead"><i class="head_icon icon_pttj"></i> <span>平台推荐</span> <cite><a class="btn_more" href="#" target="_blank">更多+</a></cite></div>
+<div class="tbody">
+<ul>
+    <li v-for="recommend in recommends">
+    <a v-bind:href="recommend.href" target="_blank">
+    <img :src="recommend.src">
+    <cite><i>{{recommend.title}}</i><font>{{recommend.nums}}人</font></cite>
+    </a>
+    </li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+<div class="footer">
+<div class="wrap_body">
+<center><a href="#" target="_blank">关于我们</a> | <a href="#" target="_blank">品牌故事</a> | <a href="#" target="_blank">常见问题</a> | <a href="#" target="_blank">新手上路</a></center>
+<center>Copyright &copy; 2017 M8 版权所有 All Right Reserved</center>
+<center>M8郑重提示：彩票有风险，投注需谨慎，未满18周岁的青少年请自觉离开</center>
+</div>
+</div>
+
+<!-- 快速导航 -->
+<div class="quick_link">
+<ul>
+<li class="q_l_1"><a href="#"><i class="icon_s icon_mfzc"></i>免费注册</a></li>
+<li class="q_l_2"><a href="#"><i class="icon_s icon_bdsj"></i>绑定手机</a></li>
+<li class="q_l_3"><a href="#"><i class="icon_s icon_bdss"></i>被盗申诉</a></li>
+<li class="q_l_4"><a href="#"><i class="icon_s icon_zhmm"></i>找回密码</a></li>
+<li class="q_l_5"><a href="#"><i class="icon_s icon_zhxf"></i>帐号修复</a></li>
+<li class="q_l_6"><a href="#"><i class="icon_s icon_zxkf"></i>在线客服</a></li>
+</ul>
+</div>
+
+<script>
+
+var login_box = new Vue({
+	el:'#login_box',
+	data:{
+		user_name:'',
+		user_password:'',
+		user_seccode:''
+	},
+	methods:{
+		submitLogin:function(){
+			if(!this.user_name){
+				alert('账号不能为空');
+			}else if(!this.user_password){
+				alert('密码不能为空');
+			}else if(!this.user_seccode){
+				alert('验证码不能为空');
+			}
+			
+		}
+	}
+})
+
+var owl_favorites = new Vue({
+	el: '#owl-favorites',
+	data: {
+	favorites:[
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩"
+		}
+		]
+	}
+});	
+
+var M8_hot = new Vue({
+	el: '.M8_hot',
+	data: {
+	hots:[
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"des": "每10分钟一期",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"des": "每10分钟一期",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"des": "每10分钟一期",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"des": "每10分钟一期",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"des": "每10分钟一期",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"des": "每10分钟一期",
+			"nums": "8335"
+		}
+		]
+	}
+});	
+
+var M8_recommend = new Vue({
+	el: '.M8_recommend',
+	data: {
+	recommends:[
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"nums": "7335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"nums": "8335"
+		}, 
+		{
+			"href": "#", 
+			"src": "images/pic.png", 
+			"title": "重庆时时彩",
+			"nums": "8335"
+		}
+		]
+	}
+});	
+	
+</script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script>
+document.body.addEventListener("click", function(){
+    document.getElementById("login_info").style.display='none';
+});
+(function($){
+	//首页全屏轮播图
+	$('#owl-banner').owlCarousel({
+		items:1,
+		loop:true,
+		nav:false,
+		dots:true,
+		animateOut: 'fadeOut',
+		dotsContainer: '#owl-banner-dots'
+	});	
+	
+	$('.owl-dot').click(function () {
+		$('#owl-banner').trigger('to.owl.carousel', [$(this).index(), 300]);
+	});
+	//首页收藏多图轮播
+	$('#owl-favorites').owlCarousel({
+		items:5,
+		loop:true,
+		margin:8,
+		nav:true,
+		dots:false
+	})
+})(jQuery)
+</script>
+
+</body>
+</html>

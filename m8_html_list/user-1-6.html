@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>银行卡管理_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">我的账户</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;" class="row5text">银行卡管理</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">安全设置</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="javascript:;">个人信息</a></li>
+<li @click="active(4)" v-bind:class="{active:actives[4]}"><a href="javascript:;">奖金详情</a></li>
+</ul>
+</div>
+
+<div class="user_thead">
+
+<div class="thead_face">
+<img src="images/face.png">
+<span><i>昵称：草原上的奶牛</i> <i>账户：TTUP520</i></span>
+<span><cite>上次登录时间：2017-04-20 15:44:23</cite></span>
+<span><cite>上次登录IP：192.168.0.154</cite></span>
+</div>
+
+<div class="thead_mingxi">
+<span><i>返点明细</i></span>
+<span><cite>彩票游戏返点：1.000</cite> <cite>AG视讯返点：1.000</cite></span>
+<span><cite>电子游戏返点：1.000</cite> <cite>BB体育返点：1.000</cite></span>
+</div>
+
+<div class="thead_other">
+
+<span class="icon_ver">
+<i class="icon_mbwsz"></i>
+<cite>密保未设置</cite>
+</span>
+
+<span class="icon_ver">
+<i class="icon_yxyrz"></i>
+<cite>邮箱已认证！</cite>
+</span>
+
+<span class="icon_ver">
+<i class="icon_aqdj_z"></i>
+<cite>安全等级：中</cite>
+</span>
+
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="tbody_operate">
+
+<div class="operate_ext clearfix">
+
+<div class="lock_bank"><i></i> <span>一键锁定</span></div>
+
+<h5>银行卡管理</h5>
+
+<div class="operate_ext_body">
+
+<p>已经绑定 <strong>0</strong> 张银行卡，<strong>一共可以绑定 5 张银行卡</strong></p>
+
+<ul class="bank_car_list clearfix">
+    <li>
+    <i class="icon_add_l"></i>
+    <cite>添加银行卡</cite>
+    </li>
+    <li>
+    <i class="icon_add_l"></i>
+    <cite>添加银行卡</cite>
+    </li>
+    <li>
+    <i class="icon_add_l"></i>
+    <cite>添加银行卡</cite>
+    </li>
+    <li>
+    <i class="icon_add_l"></i>
+    <cite>添加银行卡</cite>
+    </li>
+    <li>
+    <i class="icon_add_l"></i>
+    <cite>添加银行卡</cite>
+    </li>
+</ul>
+
+<div class="bank_tip">
+<h6>温馨提示：</h6>
+<p>1、银行卡添加成功后，平台任何区域都不会出现您的完整银行卡信息。</p>
+<p>2、银行卡添加成功后，平台任何区域都不会出现您的完整银行信息。</p>
+<p>3、每个平台账号最多可添加7张银行卡。</p>
+<p>4、一个账号只能添加同一个开户人姓名的银行卡。</p>
+<p>5、添加/修改/锁定银行卡信息后，需要6小时以上方可提现。</p>
+<p>6、必须锁定银行卡后方可提现。</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML();
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, true, false, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

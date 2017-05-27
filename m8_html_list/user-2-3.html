@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>日工资记录_日工资_资金记录_资金管理_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">我要充值</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">我要取款</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">资金记录</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="javascript:;">帐变明细</a></li>
+<li @click="active(4)" v-bind:class="{active:actives[4]}"><a href="javascript:;">彩票工资</a></li>
+<li @click="active(5)" v-bind:class="{active:actives[5]}"><a href="javascript:;">契约分红</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;">日工资</a>
+    <a href="javascript:;" class="active">日工资记录</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form>
+    
+    账户：
+    <input type="text" name="" placeholder="输入转换单号" style="width:120px;">
+        
+    <select>
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+    
+    状态：
+    <select>
+          <option value="">未派发</option>
+          <option value="">已派发</option>
+    </select>
+
+    时间：
+    <select>
+          <option value="">最近三个月</option>
+          <option value="">最近五个月</option>
+    </select>
+
+    <input type="button" value="确定" class="o_submit">
+    
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="tbody_operate table_data">
+
+<div class="user_table clearfix">
+  <table class="o_table" id="sortTable">
+    <thead>
+      <tr>
+        <th>账号</th>
+        <th>工资类型</th>
+        <th>发送状态</th>
+        <th onclick="sortTable(3)">工资 <i class="o_sort"></i></th>
+        <th onclick="sortTable(4)">发放时间 <i class="o_sort"></i></th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td>未发送</td>
+            <td>sdfas</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td>未发送</td>
+            <td>sffas</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td>未发送</td>
+            <td>sdfas</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td>未发送</td>
+            <td>sdfas</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案02</td>
+            <td>未发送</td>
+            <td>sdfas</td>
+            <td>2017-05-25 10:23:42</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>设计方案01</td>
+            <td>未发送</td>
+            <td>sdfas</td>
+            <td>2017-05-23 10:23:42</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="o_page">
+<div class="page_record">共有42条记录，第7页</div>
+<div class="page_data">
+<a href="#" class="page_pre">&#8249;</a><a href="#">1</a><a href="#">2</a><span>...</span><a href="#" class="active">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#" class="page_next">&#8250;</a>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+var user_menu = document.getElementsByClassName("user_menu")[0];
+user_menu.setAttribute("class", "user_menu user_menu_s");
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[1].setAttribute("class", "active");
+});
+
+/*表格排序*/
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("sortTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, false, false, false, true, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

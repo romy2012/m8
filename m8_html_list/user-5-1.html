@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>注册链接列表_推广设定_代理中心_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<link rel="stylesheet" href="css/pikaday.css"/>
+<script src="js/vue.js"></script>
+<script src="js/pikaday.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">推广设定</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">会员管理</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">团队总览</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;" class="active">注册链接列表</a>
+    <a href="javascript:;">新增注册链接</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form>
+    
+    日期：
+    <input type="button" value="今日" class="active">
+    <input type="button" value="今周">
+    <input type="button" value="今月">
+    
+    <input type="text" placeholder="2017-05-02" class="o_date" id="datepicker_start">
+    -
+    <input type="text" placeholder="2017-05-05" class="o_date" id="datepicker_end">
+    
+    <div class="clearfix"></div>
+    
+    注册类型：
+    
+    <select name="">
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+    
+    状态：
+    <select name="">
+          <option value="">全部</option>
+          <option value="">其他</option>
+    </select>
+
+    <i></i>
+    <input type="button" value="搜索" class="o_submit">
+    
+    <input type="reset" value="重置" class="o_reset">
+    
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="tbody_operate table_data">
+
+<div class="user_table clearfix">
+  <table class="o_table" id="sortTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0,'sortTable')">注册类型 <i class="o_sort"></i></th>
+        <th onclick="sortTable(1,'sortTable')">注册链接 <i class="o_sort"></i></th>
+        <th onclick="sortTable(2,'sortTable')">返点级别 <i class="o_sort"></i></th>
+        <th onclick="sortTable(3,'sortTable')">生成链接时间 <i class="o_sort"></i></th>
+        <th onclick="sortTable(4,'sortTable')">发展下级 <i class="o_sort"></i></th>
+        <th onclick="sortTable(5,'sortTable')">保留返点 <i class="o_sort"></i></th>
+        <th onclick="sortTable(6,'sortTable')">状态 <i class="o_sort"></i></th>
+        <th>操作</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_green"></i></td>
+            <td><i class="icon_round_grey"></i></td>
+            <td class="green">已启用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play active" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_grey"></i></td>
+            <td><i class="icon_round_green"></i></td>
+            <td class="red">已停用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_grey"></i></td>
+            <td><i class="icon_round_green"></i></td>
+            <td class="green">已启用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play active" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_green"></i></td>
+            <td><i class="icon_round_grey"></i></td>
+            <td class="red">已停用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_green"></i></td>
+            <td><i class="icon_round_grey"></i></td>
+            <td class="green">已启用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play active" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_green"></i></td>
+            <td><i class="icon_round_grey"></i></td>
+            <td class="red">已停用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_green"></i></td>
+            <td><i class="icon_round_green"></i></td>
+            <td class="green">已启用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play active" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+        <tr>
+            <td>会员</td>
+            <td>../register/3H3h2</td>
+            <td>6.1%</td>
+            <td>2017-05-11</td>
+            <td><i class="icon_round_green"></i></td>
+            <td><i class="icon_round_grey"></i></td>
+            <td class="red">已停用</td>
+            <td><a href="javascript:;" title="复制" class="icon_op_copy">复制</a> <a href="javascript:;" title="启用/停止" class="icon_op_play" onClick="opPlay(this,'icon_op_play')">启用/停止</a> <a href="javascript:;" title="删除" class="icon_op_del">删除</a></td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="o_page">
+<div class="page_record">共有42条记录，第7页</div>
+<div class="page_data">
+<a href="#" class="page_pre">&#8249;</a><a href="#">1</a><a href="#">2</a><span>...</span><a href="#" class="active">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#" class="page_next">&#8250;</a>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+var user_menu = document.getElementsByClassName("user_menu")[0];
+user_menu.setAttribute("class", "user_menu user_menu_s");
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[4].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [true, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+
+var startPicker  = new Pikaday({ field: document.getElementById('datepicker_start') });
+var endPicker   = new Pikaday({ field: document.getElementById('datepicker_end') });
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

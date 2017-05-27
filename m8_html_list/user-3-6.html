@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>精简版_总盈亏报表_盈亏报表_游戏中心_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">投注记录</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;" class="row6text">彩票追号记录</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">盈亏报表</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="javascript:;">日结报表</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;" class="active">总盈亏报表</a>
+    <a href="javascript:;">彩票报表</a>
+    <a href="javascript:;">KG报表</a>
+    <a href="javascript:;">AG报表</a>
+    <a href="javascript:;">BBIN报表</a>
+    <a href="javascript:;">PT报表</a>
+    <a href="javascript:;">MG报表</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="table_form">
+
+    <form>
+    
+    结算日期：
+    <input type="text" placeholder="2017-05-02" class="o_date">
+    -
+    <input type="text" placeholder="2017-05-05" class="o_date">
+    
+    <div class="clearfix"></div>
+
+    订单号：
+    <input type="text" name="" placeholder="输入投注单号">
+
+    <select name="">
+          <option value="">直属下级</option>
+          <option value="">其他</option>
+    </select>
+    
+    <input type="checkbox" name="option" id="checkbox" class="check" /><label for="checkbox" class="label_check">包含自己</label>
+    
+    <i></i>
+
+    <input type="button" value="搜索" class="o_submit">
+    
+    <input type="reset" value="重置" class="o_reset">
+
+    </form>
+    
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="report_ext clearfix">
+
+    <span>
+    <cite>盈亏汇总</cite>
+    <i class="red">+0.782</i>
+    </span>
+    
+    <span>
+    <cite>返点汇总</cite>
+    <i class="red">0.729</i>
+    </span>
+    
+    <span>
+    <cite>盈亏汇总</cite>
+    <i class="red">¥2000.000</i>
+    </span>
+
+</div>
+
+
+<div class="tbody_operate table_data">
+
+<div class="user_table clearfix">
+  <table class="o_table">
+    <thead>
+      <tr>
+        <th>用户账户</th>
+        <th>账号类型</th>
+        <th>层级</th>
+        <th>总盈亏</th>
+        <th>总返点</th>
+        <th>彩票盈亏</th>
+        <th>KG盈亏</th>
+        <th>AG盈亏</th>
+        <th>BBIN盈亏</th>
+        <th>PT盈亏</th>
+        <th>MG盈亏</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="red">123.321</td>
+            <td class="red">123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="red">123.321</td>
+            <td class="red">123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="red">123.321</td>
+            <td class="red">123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="red">123.321</td>
+            <td class="red">123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+        <tr>
+            <td>Lisasda</td>
+            <td>个人</td>
+            <td>0级</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td class="green">-123.321</td>
+            <td class="green">-123.321</td>
+            <td>0.000</td>
+            <td>0.000</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="clear_dot"></div>
+
+<div class="o_page">
+<div class="page_record">共有42条记录，第7页</div>
+<div class="page_data">
+<a href="#" class="page_pre">&#8249;</a><a href="#">1</a><a href="#">2</a><span>...</span><a href="#" class="active">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#" class="page_next">&#8250;</a>
+</div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="table_info_r"><a href="user-3-9.html" target="_blank">查看整合版报表</a></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[2].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, false, true, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

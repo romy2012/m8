@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>会员_新增注册链接_推广设定_代理中心_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">推广设定</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">会员管理</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">团队总览</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext">
+
+<div class="thead_zjgl">
+    <a href="javascript:;">注册链接列表</a>
+    <a href="javascript:;" class="active">新增注册链接</a>
+</div>
+
+</div>
+
+<div class="user_tbody">
+
+<div class="agent_ext">
+下级类型：<a href="javascript:;" class="btn">代理</a> <a href="javascript:;" class="btn active">会员</a>
+<div class="clearfix"></div>
+允许下级保留返点：
+<select>
+      <option value="">允许</option>
+      <option value="">不允许</option>
+</select>
+允许下级发展代理：
+<select>
+      <option value="">允许</option>
+      <option value="">不允许</option>
+</select>
+<i></i>
+<input type="button" value="搜索" class="o_submit">
+<input type="reset" value="重置" class="o_reset">
+</div>
+
+<div class="agent_rebate">
+
+<div class="rebate_range">
+<cite>返点设定：</cite> <input id="rebate_range" type="range" min="0" max="6.1" value="6.1" step ="0.1"/> <span id="rebate_result">6.1</span>
+<script>
+var p = document.getElementById("rebate_range"),
+    res = document.getElementById("rebate_result");
+	p.addEventListener("input", function() {
+    	res.innerHTML = p.value;
+	}, false); 
+</script>
+</div>
+
+<div class="rebate_data"><span>我的返点：6.1</span> <span>代理返点：6.1</span> <span>保留返点：0</span></div>
+
+<div class="rebate_data"><span>当前所属区间：6.1 ~ 6.5</span> <span>配额数：0</span> <span>已消耗：0</span> <span>剩余配额：0</span></div>
+
+<div class="rebate_submit"><input type="button" value="生成注册链接" class="btn w_l"></div>
+
+<div class="rebate_ext">
+<span>生成注册链接：<input type="button" value="复制" class="btn_copy"></span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+var user_menu = document.getElementsByClassName("user_menu")[0];
+user_menu.setAttribute("class", "user_menu user_menu_s");
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[4].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [true, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

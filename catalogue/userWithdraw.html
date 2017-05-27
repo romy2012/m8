@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>我要取款_资金管理</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu user_menu_d">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="userRecharge.html">我要充值</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="userWithdraw.html">我要取款</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="userFunds.html">资金记录</a></li>
+<li @click="active(3)" v-bind:class="{active:actives[3]}"><a href="userAccountDetail.html">帐变明细</a></li>
+<li @click="active(4)" v-bind:class="{active:actives[4]}"><a href="userDailyWages.html">彩票工资</a></li>
+<li @click="active(5)" v-bind:class="{active:actives[5]}"><a href="userContractBonus.html">契约分红</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext h_none"></div>
+
+<div class="user_tbody">
+
+<ul class="tbody_menu_qukuan clearfix">
+
+<li>
+<cite>彩票平台总额</cite>
+<span>99999999.000</span>
+</li>
+
+<li class="qukuan_sy">
+<cite>剩余打码额</cite>
+<span>99999999.000</span>
+</li>
+
+</ul>
+
+<div class="tbody_operate">
+
+<form class="form_submit" name="operateForm[withdraw]" onSubmit="submitFalse()">
+
+<p>
+<label>提现金额：</label>
+<input type="text" placeholder="请输入充值金额">
+<span> 元</span>
+</p>
+
+<p>
+<label>提现银行：</label>
+<select>
+      <option value="">广州工商银行</option>
+      <option value="">杭州网商银行</option>
+</select>
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p>
+<label>资金密码：</label>
+<input type="password" placeholder="请输入您的资金密码">
+<span><i class="icon_tip"></i></span>
+</p>
+
+<p class="font_ext"><label></label><font>*</font> <cite>试玩会员不允许提现操作,请先转为正式会员</cite><span></span></p>
+
+<p><label></label><input type="submit" value="确定提现" class="btn_submit" name="operateSubmit[withdraw]" disabled><span></span></p>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[1].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [false, true, false, false, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+	
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

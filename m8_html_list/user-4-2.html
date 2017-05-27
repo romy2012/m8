@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes" >
+<meta name="format-detection" content="telephone=no,email=no"/>
+<title>读取消息_站内消息_消息中心_个人中心</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/user.css"/>
+<script src="js/vue.js"></script>
+<script src="js/w3data.js"></script>
+
+</head>
+
+<body>
+
+<!-- 主导航 -->
+<div class="M8_nav_level_1" w3-include-html="m8_nav.html"></div> 
+
+<div class="user_center_html">
+
+<!-- 二级导航 -->
+<div class="M8_nav_level_2 num5s" w3-include-html="m8_nav_2.html"></div>
+
+<div class="wrap_user clearfix user_box">
+
+<div class="user_menu">
+<ul>
+<li @click="active(0)" v-bind:class="{active:actives[0]}"><a href="javascript:;">站内消息</a></li>
+<li @click="active(1)" v-bind:class="{active:actives[1]}"><a href="javascript:;">网站公告</a></li>
+<li @click="active(2)" v-bind:class="{active:actives[2]}"><a href="javascript:;">优惠活动</a></li>
+</ul>
+</div>
+
+<div class="user_thead h_ext h_none"></div>
+
+<div class="user_tbody">
+
+<div class="space_msg">
+<input type="button" value="返回" class="btn">
+<input type="button" value="删除" class="btn red">
+</div>
+
+<div class="msg_title">个人信息</div>
+
+<div class="tbody_operate">
+
+<div class="msg_content">
+蓝鲸发明者终入狱。50天内完成各种各样的自残任务，挑战自己的极限，最终诱导青少年参与者自杀……“蓝鲸”死亡游戏开始在中国社交网络中出现。昨天是互联网社会责任日，首都互联网协会新闻评议专业委员会2017年度第四次会议就抵制“蓝鲸”游戏，保护青少年健康成长进行探讨，全力拦截这条死亡的“蓝鲸”。
+</div>
+
+</div>
+
+<div class="msg_sender">
+发件人：admin123456 
+收件人：上级 
+2017-05-06 18:24:24
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 底部信息 -->
+
+<div class="footer" w3-include-html="footer.html"></div> 
+
+<script>
+
+w3IncludeHTML(function() { 
+	var list = document.getElementsByClassName("M8_nav_level_2")[0];
+	list.getElementsByClassName("active")[0].removeAttribute("class");
+	list.getElementsByTagName("li")[3].setAttribute("class", "active");
+});
+
+var user_menu = new Vue({
+  el: '.user_menu',
+  data: {
+    actives: [true, false, false]
+  },
+  methods: {
+    active: function(index) {
+      this.actives = this.actives.map(function(v, i) {
+        return i === index;
+      });
+    }
+  }
+
+});
+
+</script>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>
